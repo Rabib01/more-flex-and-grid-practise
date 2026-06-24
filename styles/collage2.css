@@ -1,0 +1,78 @@
+img{
+    height:100%;
+    width: 100%;
+}
+
+.row{
+    border: 1px solid red;
+    height: 400px;
+    /* width: 100%; */
+    gap:5px;
+    margin-bottom: 5px;
+}
+
+.row-2{
+    display: flex;
+    height: 400px;
+    /* width: 100%; */
+    gap: 5px;
+
+}
+/* 
+
+    There are 2 versions for this to work 
+    1: Where I make the second row and then If I want to keepthe images without horizontal overflow 
+    > make row-2 > img : 
+    > flex: 1
+    > mind-with: 0;
+    Otherwist img : width: 100; height: 100% means that it is each image is going to take 100% of the original width that it came with, hence the overflow 
+    
+    2: I keep the images in speparate divs 
+    and then when i give display flex to row 2, it will only take the size of the given div 
+    
+    */
+    
+/* Version 1 : Swithch on / Off */
+
+/* .row-2 > img{
+    flex:1; 
+    min-width: 0;
+} */
+    
+
+/* version-2 turn on Ovv */
+
+.row-2 > div {
+    flex:1
+}
+
+.row-2-column-3{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Some notes on min-height */
+
+/* 
+flex: 1 tells Flexbox to divide the available space equally among the images, so D and E each get half of the column's height. However, images have an intrinsic size—their natural dimensions based on the image file itself. By default, a flex item may try not to shrink below the size its content prefers. min-height: 0 tells the images that they are allowed to become smaller than their intrinsic or preferred height if necessary to fit within the available space. In this layout, flex: 1 is what makes the images share the space equally, while min-height: 0 acts as a safeguard that prevents overflow when an image's intrinsic size would otherwise make it resist shrinking.
+ */
+
+.row-2-column-3 > img {
+    flex: 1;
+    min-height: 0;
+}
+
+
+.row-3{
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.row-3 > div  {
+    flex: 1;
+    min-width: 0;
+}
+
+
